@@ -1,0 +1,265 @@
+/* Travel page layout lives separately to prevent portfolio rules from colliding. */
+.travel-page .site-header {
+  position: relative;
+  z-index: 20;
+  background: var(--paper);
+}
+
+.travel-main {
+  min-height: calc(100vh - 80px);
+}
+
+.travel-page .map-view {
+  min-height: calc(100vh - 80px);
+  padding: clamp(2.5rem, 5vw, 5rem) 5vw 2.5rem;
+  overflow: hidden;
+  position: relative;
+  background: var(--paper);
+}
+
+.travel-page .map-copy {
+  width: min(100%, 760px);
+  max-width: none;
+  position: relative;
+  z-index: 5;
+}
+
+.travel-page .map-copy .eyebrow {
+  display: block;
+  margin: 0 0 1rem;
+  color: var(--blue);
+}
+
+.travel-page .map-copy h1 {
+  margin: 0;
+  max-width: 760px;
+  font: 600 clamp(3.75rem, 6.2vw, 7rem)/.8 Halant, serif;
+  letter-spacing: -.05em;
+}
+
+.travel-page .map-copy h1 em {
+  color: var(--blue);
+  font-weight: 400;
+}
+
+.travel-page .map-copy > p:last-child {
+  max-width: 620px;
+  margin: 2rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.travel-page .map-meta {
+  position: absolute;
+  z-index: 5;
+  top: clamp(3rem, 5vw, 5rem);
+  right: 5vw;
+  display: flex;
+  gap: 2.5rem;
+  text-align: left;
+}
+
+.travel-page .map-meta span {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: baseline;
+  gap: .45rem;
+  color: var(--muted);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.travel-page .map-meta strong {
+  color: var(--ink);
+  font: 600 2.2rem/1 Halant, serif;
+}
+
+.travel-page .world-map {
+  position: relative;
+  width: min(90vw, 1500px);
+  aspect-ratio: 2 / 1;
+  margin: 3rem auto 0;
+  isolation: isolate;
+}
+
+.travel-page .world-map > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.travel-page .map-markers {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.travel-page .map-marker {
+  position: absolute;
+  z-index: 2;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  appearance: none;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+}
+
+.travel-page .map-marker .pin-dot {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 4px solid var(--paper);
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 1px var(--blue), 0 5px 16px rgba(0, 0, 0, .22);
+}
+
+.travel-page .map-marker .pin-label {
+  position: absolute;
+  left: 26px;
+  top: 50%;
+  display: block;
+  min-width: max-content;
+  padding: .5rem .7rem;
+  transform: translate(8px, -50%);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+  text-align: left;
+  font-size: .75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+}
+
+.travel-page .map-marker .pin-label small {
+  display: block;
+  margin-top: .2rem;
+  color: var(--muted);
+  font-size: .58rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.travel-page .map-marker:hover .pin-label,
+.travel-page .map-marker:focus-visible .pin-label {
+  background: var(--ink);
+  color: var(--paper);
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -50%);
+}
+
+.travel-page .map-marker:hover .pin-label small,
+.travel-page .map-marker:focus-visible .pin-label small {
+  color: var(--paper);
+  opacity: .72;
+}
+
+.travel-page .map-empty {
+  top: 50%;
+}
+
+.travel-page .map-credit {
+  right: 5vw;
+}
+
+html[data-theme="dark"] .travel-page .site-header {
+  background: var(--paper);
+}
+
+@media (max-width: 1050px) {
+  .travel-page .map-meta {
+    position: static;
+    margin-top: 2.5rem;
+  }
+
+  .travel-page .world-map {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .travel-page .site-header {
+    height: 64px;
+  }
+
+  .travel-main {
+    min-height: calc(100svh - 64px);
+  }
+
+  .travel-page .map-view {
+    min-height: calc(100svh - 64px);
+    padding: 2.75rem 5vw 2rem;
+  }
+
+  .travel-page .map-copy h1 {
+    font-size: clamp(3.6rem, 17vw, 5.5rem);
+    line-height: .82;
+  }
+
+  .travel-page .map-copy > p:last-child {
+    margin-top: 1.5rem;
+  }
+
+  .travel-page .map-meta {
+    gap: 1.4rem;
+    margin-top: 2rem;
+  }
+
+  .travel-page .map-meta span {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .travel-page .map-meta strong {
+    font-size: 1.8rem;
+  }
+
+  .travel-page .world-map {
+    width: 116vw;
+    margin: 2rem 0 0 -13vw;
+  }
+
+  .travel-page .map-marker .pin-label {
+    display: block;
+    left: 22px;
+    padding: .35rem .5rem;
+    font-size: .65rem;
+  }
+}
+/* Horizontal place gallery */
+.travel-page .gallery-controls{display:flex;align-items:center;gap:.6rem}.travel-page .gallery-controls span{margin-right:.5rem}.travel-page .gallery-controls button{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;font-size:1rem}.travel-page .gallery-controls button:hover{background:var(--ink);color:var(--paper)}
+.travel-page .travel-photo-grid{display:flex;align-items:flex-start;gap:clamp(1rem,2vw,2rem);width:calc(100% + 6vw);margin-right:-6vw;padding:0 6vw 1.25rem 0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;scrollbar-width:thin;scrollbar-color:var(--blue) transparent;-webkit-overflow-scrolling:touch}.travel-page .travel-photo-grid::-webkit-scrollbar{height:6px}.travel-page .travel-photo-grid::-webkit-scrollbar-track{background:transparent}.travel-page .travel-photo-grid::-webkit-scrollbar-thumb{border-radius:10px;background:var(--blue)}
+.travel-page .travel-photo{flex:0 0 min(68vw,960px);width:min(68vw,960px);margin:0;scroll-snap-align:start}.travel-page .travel-photo.portrait{flex-basis:min(42vw,580px);width:min(42vw,580px)}.travel-page .travel-photo.wide{flex-basis:min(78vw,1120px);width:min(78vw,1120px)}
+.travel-page .travel-photo button{display:flex;align-items:center;justify-content:center;width:100%;height:min(66vh,740px);padding:0;overflow:hidden;border:1px solid var(--line);background:color-mix(in srgb,var(--paper) 82%,var(--white))}.travel-page .travel-photo img,.travel-page .travel-photo.wide img,.travel-page .travel-photo.portrait img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;aspect-ratio:auto;object-fit:contain}.travel-page .travel-photo figcaption{padding:.65rem 0 0}
+@media(max-width:760px){.travel-page .gallery-controls span{display:none}.travel-page .travel-photo-grid{display:flex;width:calc(100% + 5vw);margin-right:-5vw;padding-right:5vw}.travel-page .travel-photo,.travel-page .travel-photo.wide,.travel-page .travel-photo.portrait{flex:0 0 86vw;width:86vw;margin:0}.travel-page .travel-photo button{height:62svh}}
+
+.travel-page .gallery-toolbar{display:flex;justify-content:flex-end;align-items:center;gap:.8rem;border-bottom:0;padding-bottom:0}.travel-page .back-to-map{order:2;display:grid;place-items:center;width:46px;height:46px;padding:0;border:1px solid color-mix(in srgb,var(--line) 80%,transparent);border-radius:50%;background:color-mix(in srgb,var(--paper) 84%,transparent);color:var(--ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 8px 24px rgba(0,0,0,.1);backdrop-filter:blur(10px);font:300 1.75rem/1 "DM Sans",sans-serif;letter-spacing:0;text-transform:none;transition:transform .25s ease,background .25s ease,color .25s ease,border-color .25s ease}.travel-page .back-to-map span{display:block;transform:translateY(-1px)}.travel-page .back-to-map:hover,.travel-page .back-to-map:focus-visible{transform:rotate(90deg);border-color:var(--blue);background:var(--blue);color:#fff}.travel-page .gallery-controls{order:1}
+
+/* Tight, natural-ratio filmstrip */
+.travel-page .place-gallery{padding:3rem 5vw clamp(7rem,11vh,11rem)}.travel-page .travel-photo-grid{gap:12px;width:calc(100% + 5vw);margin-right:-5vw;padding:0 5vw 3.5rem 0}.travel-page .travel-photo,.travel-page .travel-photo.portrait,.travel-page .travel-photo.wide{flex:0 0 auto;width:auto}.travel-page .travel-photo button{width:auto;height:min(66vh,740px);border:0;background:transparent}.travel-page .travel-photo img,.travel-page .travel-photo.wide img,.travel-page .travel-photo.portrait img{width:auto;height:100%;max-width:none;object-fit:contain}.travel-page .travel-photo figcaption{padding:.55rem 0 0}
+@media(max-width:760px){.travel-page .place-gallery{padding:2rem 5vw 7rem}.travel-page .travel-photo-grid{gap:8px;padding-bottom:3rem}.travel-page .travel-photo,.travel-page .travel-photo.wide,.travel-page .travel-photo.portrait{flex:0 0 auto;width:auto}.travel-page .travel-photo button{width:auto;height:58svh}.travel-page .travel-photo img,.travel-page .travel-photo.wide img,.travel-page .travel-photo.portrait img{width:auto;height:100%;max-width:88vw}}
+
+/* Minimal place heading and a dedicated writing area. */
+.travel-page .place-header{display:block;padding:3.5rem 0 2.5rem}.travel-page .place-header h1{margin:0 0 1rem;font-size:clamp(3.5rem,7vw,7rem)}.travel-page .place-header time{display:block;color:var(--muted)}.travel-page .place-comments{min-height:110px;margin-bottom:2rem;padding:1rem 0 1.5rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.travel-page .place-comments>span{display:block;margin-bottom:.75rem;color:var(--blue);font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}.travel-page .place-comments p{max-width:850px;margin:0;font:400 1.15rem/1.6 Halant,serif;color:var(--muted);white-space:pre-line}.travel-page .travel-photo figcaption{display:none}@media(max-width:760px){.travel-page .place-header{padding:2.5rem 0 2rem}.travel-page .place-comments{min-height:90px;margin-bottom:1.5rem}}
+.travel-page .place-header h1{font-size:clamp(2.6rem,5vw,4.8rem)}
+.travel-page .place-header .place-locations{margin:-.35rem 0 1rem;color:var(--blue);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}.travel-page .place-header .place-locations[hidden]{display:none}
+.travel-page #place-notes{max-width:940px}.travel-page #place-notes p{margin:0 0 1.15rem;color:var(--ink);font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:1.05rem;line-height:1.78}.travel-page #place-notes p:last-child{margin-bottom:0}.travel-page #place-notes .note-lead{margin-bottom:1.5rem;font-size:1.3rem;line-height:1.4;color:var(--blue)}.travel-page #place-notes .note-lead em{font-weight:400}
+.travel-page .map-marker .pin-label{width:230px;padding:6px;border-radius:2px}.travel-page .map-marker .pin-label img{display:block;width:100%;height:138px;margin:0 0 .65rem;object-fit:cover}.travel-page .map-marker .pin-label strong{display:block;padding:0 .25rem .2rem;font-size:.76rem;line-height:1.35;letter-spacing:.02em}.travel-page .map-marker:hover .pin-label strong,.travel-page .map-marker:focus-visible .pin-label strong{color:var(--paper)}

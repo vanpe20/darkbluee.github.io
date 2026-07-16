@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Travel Journal | Zeru Shi</title>
+  <meta name="description" content="A visual travel journal by Zeru Shi — places, light, and moments collected along the way.">
+  <meta name="author" content="Zeru Shi">
+  <meta name="theme-color" content="#f1efe9">
+  <link rel="canonical" href="https://darkbluee.github.io/travel.html">
+  <script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Halant:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./travel.css?v=11">
+</head>
+<body id="top" class="travel-page">
+  <header class="site-header travel-header">
+    <a class="wordmark" href="./index.html">DarkBluee<span>.</span></a>
+    <nav aria-label="Travel navigation"><a href="./index.html">← Home</a><a href="#map">Map</a><a href="mailto:zeru.shi@rutgers.edu">Contact</a></nav>
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch color theme"><span aria-hidden="true">◐</span></button>
+  </header>
+
+  <main class="travel-main">
+    <section id="map" class="map-view" aria-labelledby="map-title">
+      <div class="map-copy">
+        <p class="eyebrow">A PERSONAL PHOTO JOURNAL</p>
+        <h1 id="map-title">Where I’ve<br><em>been.</em></h1>
+        <p>Choose a pin to open the photographs and memories collected in that place.</p>
+      </div>
+      <div class="map-meta" aria-label="Travel gallery totals"><span><strong id="place-count">0</strong> places</span><span><strong id="photo-count">0</strong> photographs</span></div>
+      <div class="world-map" aria-label="Interactive world map">
+        <img src="./assets/travel/world-map.png" alt="World map">
+        <div class="map-grid" aria-hidden="true"></div>
+        <div id="map-markers" class="map-markers"></div>
+        <div id="map-empty" class="map-empty"><span>＋</span><p>No places pinned yet.<br>Your first journey will appear here.</p></div>
+      </div>
+      <p class="map-credit">Map data: Natural Earth · CC0</p>
+    </section>
+
+    <section id="place-gallery" class="place-gallery" hidden aria-live="polite">
+      <div class="gallery-toolbar">
+        <button id="back-to-map" class="back-to-map" type="button" aria-label="Close gallery and return to map"><span aria-hidden="true">×</span></button>
+      </div>
+      <header class="place-header">
+        <h1 id="place-title"></h1>
+        <p id="place-locations" class="place-locations" hidden></p>
+        <time id="place-date"></time>
+      </header>
+      <div class="place-comments"><span>Notes</span><div id="place-notes"></div></div>
+      <div id="travel-photos" class="travel-photo-grid" tabindex="0" aria-label="Photograph carousel; swipe or use arrow keys to browse"></div>
+    </section>
+
+    <dialog id="photo-lightbox" class="photo-lightbox">
+      <button type="button" class="lightbox-close" aria-label="Close photograph">×</button>
+      <img id="lightbox-image" alt="">
+      <p id="lightbox-caption"></p>
+    </dialog>
+  </main>
+
+  <footer><span>© 2026 Zeru Shi</span><span>Travel journal</span><a href="#top">Back to top ↑</a></footer>
+  <script src="./script.js"></script>
+  <script src="./travel-data.js?v=21"></script>
+  <script src="./travel-map.js?v=15"></script>
+</body>
+</html>
