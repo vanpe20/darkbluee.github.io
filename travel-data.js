@@ -94,7 +94,7 @@ window.TRAVEL_PLACES = [
     noteLead: "A brave jump",
     notes: [
       "San Diego is a wonderful city.I instantly fell in love with the city. The weather was perfect, life felt slower than in the Bay Area, and everywhere you looked there was a beautiful view. It was the kind of place that made you want to stay a little longer.",
-      "I’ve always liked doing something memorable on special days, so this year I went skydiving. It was nothing like I had imagined—no real feeling of weightlessness, just the wind, an incredible view, and a memory I’ll probably keep forever. A huge thank you to my friends, Boxuan and Yihao, for celebrating with me, and especially to Boxuan for jumping out of a plane with me.",
+      "I’ve always liked doing something memorable on special days, so this year I went skydiving. It was nothing like I had imagined—no real feeling of weightlessness, just the wind, an incredible view, and a memory I’ll probably keep forever. A huge thank you to my friends, Boxuan and Yihao, for celebrating with me, and especially to Boxuan for going jump with me.",
       "Here’s to 23. And hopefully, one day, to giving my own oral presentation. Happy birthday to me."
     ],
     photos: [
