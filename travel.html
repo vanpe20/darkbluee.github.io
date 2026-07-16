@@ -8,7 +8,7 @@
   <meta name="author" content="Zeru Shi">
   <meta name="theme-color" content="#f1efe9">
   <link rel="canonical" href="https://darkbluee.github.io/travel.html">
-  <script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+  <script>try{const saved=localStorage.getItem('theme');const hour=new Date().getHours();if(saved==='dark'||(!saved&&(hour>=19||hour<7)))document.documentElement.dataset.theme='dark'}catch(e){}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Halant:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -60,7 +60,7 @@
   </main>
 
   <footer><span>© 2026 Zeru Shi</span><span>Travel journal</span><a href="#top">Back to top ↑</a></footer>
-  <script src="./script.js"></script>
+  <script src="./script.js?v=2"></script>
   <script src="./travel-data.js?v=21"></script>
   <script src="./travel-map.js?v=15"></script>
 </body>
